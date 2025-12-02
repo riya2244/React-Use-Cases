@@ -1,0 +1,83 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.todo-input-container {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #ffffff;
+}
+
+.add-btn {
+  padding: 12px 20px;
+  border: none;
+  background: #4c51bf;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.add-btn:hover {
+  background: #434190;
+}
+
+.todo-list {
+  margin-top: 20px;
+}
+
+.todo-item {
+  background: white;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.delete-btn {
+  background: #e53e3e;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #c53030;
+}
