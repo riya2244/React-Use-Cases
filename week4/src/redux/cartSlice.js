@@ -15,22 +15,55 @@ const cartSlice = createSlice({
   initialState: {
     items: [],       // array of cart items
     totalQty: 0,     // total number of items
+    totalPrice: 0,   // total price of all items
     products: [],    // available products from API
     loading: false,  // loading state for API calls
     error: null,     // error state for API calls
   },
   reducers: {
     addItem: (state, action) => {
-      const newItem = { 
-        ...action.payload, 
-        cartId: Date.now() + Math.random() // unique ID for each cart item
-      };
-      state.items.push(newItem);
+      // Check if item already exists in cart
+      const existingItem = state.items.find(item => item.id === action.payload.id);
+      
+      if (existingItem) {
+        // If exists, increment quantity
+        existingItem.quantity += 1;
+      } else {
+        // If new, add with quantity 1
+        const newItem = { 
+          ...action.payload, 
+          quantity: 1,
+          cartId: Date.now() + Math.random() // unique ID for each cart item
+        };
+        state.items.push(newItem);
+      }
+      
       state.totalQty += 1;
+      state.totalPrice += action.payload.price;
     },
     removeItem: (state, action) => {
+      const itemToRemove = state.items.find(item => item.cartId === action.payload);
+      if (itemToRemove) {
+        state.totalQty -= itemToRemove.quantity;
+        state.totalPrice -= itemToRemove.price * itemToRemove.quantity;
+      }
       state.items = state.items.filter(item => item.cartId !== action.payload);
-      state.totalQty -= 1;
+    },
+    incrementQuantity: (state, action) => {
+      const item = state.items.find(item => item.cartId === action.payload);
+      if (item) {
+        item.quantity += 1;
+        state.totalQty += 1;
+        state.totalPrice += item.price;
+      }
+    },
+    decrementQuantity: (state, action) => {
+      const item = state.items.find(item => item.cartId === action.payload);
+      if (item && item.quantity > 1) {
+        item.quantity -= 1;
+        state.totalQty -= 1;
+        state.totalPrice -= item.price;
+      }
     },
   },
   // Step 2: Update state based on thunk lifecycle
@@ -51,5 +84,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem } = cartSlice.actions;
+export const { addItem, removeItem, incrementQuantity, decrementQuantity } = cartSlice.actions;
 export default cartSlice.reducer;
