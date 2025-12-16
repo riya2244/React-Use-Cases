@@ -1,0 +1,33 @@
+.profile {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #00adb5, #393e46);
+  color: white;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid white;
+  margin-bottom: 20px;
+}
+
+.tagline {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.btn {
+  background: white;
+  color: #222;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #222;
+  color: white;
+}

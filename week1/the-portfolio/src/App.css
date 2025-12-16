@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.App {
+  overflow-x: hidden;
+}

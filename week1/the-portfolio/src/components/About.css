@@ -1,0 +1,51 @@
+.about {
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+  color: #333;
+  text-align: center;
+}
+
+.about h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.about p {
+  width: 70%;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.skills {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.skills span {
+  background: #00adb5;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.toggle-btn {
+  background: #00adb5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #008c94;
+  transform: scale(1.05);
+}
